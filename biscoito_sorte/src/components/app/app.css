@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(170, 170, 170);
+    color: rgb(231, 230, 240);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button{
+    border-style: none;
+    background: none;
+    padding: 10%;
+}
+
+
+
+img{
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items:center;
+    justify-items: center;
+}
+
+.textoFrase{
+    font-style: italic;
+    color: #9b7450;
+    text-align: center;
+}
