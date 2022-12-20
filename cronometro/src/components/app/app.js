@@ -16,7 +16,7 @@ class App extends Component{
 
     setSegundos(estado){
         this.funcaoTimer = setInterval(() => {
-                if(estado.segundos > 1.9){
+                if(estado.segundos > 59.9){
                     estado.segundos = 0.0;
                     this.setMinutos(estado);
                 } 
@@ -26,7 +26,7 @@ class App extends Component{
     }
 
     setMinutos(estado){
-        if(estado.minutos >= 5){
+        if(estado.minutos >= 60){
             estado.minutos = 0
             estado.horas +=1; 
         }
@@ -43,7 +43,7 @@ class App extends Component{
             this.setSegundos(estado);
         }
         else{
-            estado.botao = "Vai";
+            estado.botao = "Continuar";
             clearInterval(this.funcaoTimer);
             this.funcaoTimer =null;
             this.setState(estado);
@@ -64,8 +64,8 @@ class App extends Component{
     render(){
        return( 
         <div className="conteiner">
-                <img src={Cronometro} className="img"/>
-                <a className="timer">{this.state.horas}:{this.state.minutos}:{this.state.segundos.toFixed(1)}</a>
+                <img src={Cronometro} className="img" alt="cronometro"/>
+                <p className="timer">{this.state.horas}:{this.state.minutos}:{this.state.segundos.toFixed(1)}</p>
                 <div className="areaTexto">
                     <button className="botao" onClick={this.vai.bind(this)}>{this.state.botao}</button>
                     <button className="botao" onClick={this.limpar.bind(this)}>Limpar</button>
