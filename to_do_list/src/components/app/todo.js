@@ -1,8 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useMemo} from "react";
 
 function ToDoList(){
     const[texto, setTexto] = useState('Digite sua tarefa:')
     const[lista, setLista] = useState(['Lavar roupa', 'Varrer quarto'])
+
+    let tamanho = useMemo(()=>{
+        return lista.length;
+    },[lista]);
 
     function addTarefa(){
         setLista([texto,...lista]);
@@ -17,6 +21,7 @@ function ToDoList(){
            </ul>
            <input type="text" value={texto} onChange={(e)=> setTexto(e.target.value)}/>
            <button onClick={addTarefa.bind(this)}>Add</button>
+           <p>Você tem {tamanho} tarefas!</p>
         </div>
     );
 }
